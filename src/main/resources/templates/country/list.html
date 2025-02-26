@@ -16,8 +16,9 @@
             <td th:text="${data.code}"></td>
             <td th:text="${data.name}"></td>
             <td th:text="${data.population}"></td>
-            <td><a href="/country/detail/{data.code}">詳細</a></td>
-            <td><a href="/country/delete/{data.code}"/>削除</a></td>
+            <!-- 最後の/をそのままくっつけるとURLが変になるので、取りあえず連結させる（他の方法がある気がする） -->
+            <td><a th:href="@{/country/detail/{code}(code=${data.code})} +'/'">詳細</a></td>
+            <td><a th:href="@{/country/delete/{code}(code=${data.code})} +'/' ">削除</a></td>
         </tr>
     </table>
 </body>
